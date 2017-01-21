@@ -1,0 +1,38 @@
+[
+  {
+    "id": "807095",
+    "twitter_name": "The New York Times",
+    "twitter_tag": "@nytimes",
+    "twitter_page": "https://twitter.com/nytimes",
+    "country": "United States of America",
+    "city": "New York",
+    "longitude": -73.935242,
+    "latitude": 40.730610,
+    "language": "English",
+    "max_twitter_id": 1
+  },
+  {
+    "id": "17469289",
+    "twitter_name": "The New York Post",
+    "twitter_tag": "@nypost",
+    "twitter_page": "https://twitter.com/nypost",
+    "country": "United States of America",
+    "city": "New York",
+    "longitude": -73.935242,
+    "latitude": 40.730610,
+    "language": "English",
+    "max_twitter_id": 1
+  },
+  {
+    "id": "9763482",
+    "twitter_name": "New York Daily News",
+    "twitter_tag": "@NYDailyNews",
+    "twitter_page": "https://twitter.com/NYDailyNews",
+    "country": "United States of America",
+    "city": "New York",
+    "longitude": -73.935242,
+    "latitude": 40.730610,
+    "language": "English",
+    "max_twitter_id": 1
+  }
+]
