@@ -26,8 +26,10 @@ auth = HTTPBasicAuth()
 
 
 class User(user_db.Model):
-    __tablename__ = 'users'
+    __tablename__ = 'user'
     id = user_db.Column(user_db.Integer, primary_key=True)
+    user_name = user_db.Column(user_db.String(256), index=True)
+    user_email = user_db.Column(user_db.String(256), index=True)
     user_login = user_db.Column(user_db.String(32), index=True)
     user_password_hash = user_db.Column(user_db.String(64))
 
