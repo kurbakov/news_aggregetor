@@ -20,7 +20,7 @@ class Database:
         self.es.index(index=index_name, id=predefined_id, body=data, doc_type=document)
 
     def delete_document(self, index_name, document, predefined_id):
-        self.es.delete(index=index_name, id=predefined_id, doc_type=document)
+        self.es.delete(index=index_name, doc_type=document, id=predefined_id)
 
     def refresh_index(self, index_name):
         self.es.indices.refresh(index=index_name)
