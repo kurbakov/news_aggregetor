@@ -3,7 +3,6 @@ import json
 
 path_to_data_sample = "/Users/dmytrokurbakov/Desktop/my_git/project_a/temp/data_sample.json"
 
-
 def read_file(path):
     con = open(path, 'r')
     data = con.read()
