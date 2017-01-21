@@ -11,22 +11,25 @@ from passlib.apps import custom_app_context as pwd_context
 from itsdangerous import (TimedJSONWebSignatureSerializer
                           as Serializer, BadSignature, SignatureExpired)
 
+# to import custom libs
+import imp
+
 # initialization
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy dog'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///user_user_db.sqlite'
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 
 # extensions
-db = SQLAlchemy(app)
+user_db = SQLAlchemy(app)
 auth = HTTPBasicAuth()
 
 
-class User(db.Model):
+class User(user_db.Model):
     __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(32), index=True)
-    password_hash = db.Column(db.String(64))
+    id = user_db.Column(user_db.Integer, primary_key=True)
+    username = user_db.Column(user_db.String(32), index=True)
+    password_hash = user_db.Column(user_db.String(64))
 
     def hash_password(self, password):
         self.password_hash = pwd_context.encrypt(password)
@@ -74,8 +77,8 @@ def new_user():
         abort(400)    # existing user
     user = User(username=username)
     user.hash_password(password)
-    db.session.add(user)
-    db.session.commit()
+    user_db.session.add(user)
+    user_db.session.commit()
     return (jsonify({'username': user.username}), 201,
             {'Location': url_for('get_user', id=user.id, _external=True)})
 
@@ -101,6 +104,6 @@ def get_resource():
     return jsonify({'data': 'Hello, %s!' % g.user.username})
 
 if __name__ == '__main__':
-    if not os.path.exists('db.sqlite'):
-        db.create_all()
+    if not os.path.exists('user_db.sqlite'):
+        user_db.create_all()
     app.run(debug=True)
