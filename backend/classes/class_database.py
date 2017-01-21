@@ -5,6 +5,7 @@
 
 from elasticsearch import Elasticsearch
 
+
 class Database:
     def __init__(self):
         self.es = Elasticsearch([{'host': '127.0.0.1', 'port': 9200}])
@@ -16,7 +17,7 @@ class Database:
         self.es.indices.delete(index=index_name, ignore=[400, 404])
 
     def insert_document(self, index_name, document, predefined_id, data):
-        self.es.index(index=index_name, id=predefined_id, body=data, doc_type=document)
+        self.es.index(index=index_name, doc_type=document, id=predefined_id, body=data)
 
     def delete_document(self, index_name, document, predefined_id):
         self.es.delete(index=index_name, doc_type=document, id=predefined_id)
