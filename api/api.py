@@ -28,14 +28,14 @@ auth = HTTPBasicAuth()
 class User(user_db.Model):
     __tablename__ = 'users'
     id = user_db.Column(user_db.Integer, primary_key=True)
-    username = user_db.Column(user_db.String(32), index=True)
-    password_hash = user_db.Column(user_db.String(64))
+    user_login = user_db.Column(user_db.String(32), index=True)
+    user_password_hash = user_db.Column(user_db.String(64))
 
-    def hash_password(self, password):
-        self.password_hash = pwd_context.encrypt(password)
+    def hash_user_password(self, user_password):
+        self.user_password_hash = pwd_context.encrypt(user_password)
 
-    def verify_password(self, password):
-        return pwd_context.verify(password, self.password_hash)
+    def verify_user_password(self, user_password):
+        return pwd_context.verify(user_password, self.user_password_hash)
 
     def generate_auth_token(self, expiration=600):
         s = Serializer(app.config['SECRET_KEY'], expires_in=expiration)
@@ -54,14 +54,14 @@ class User(user_db.Model):
         return user
 
 
-@auth.verify_password
-def verify_password(username_or_token, password):
+@auth.verify_user_password
+def verify_user_password(user_login_or_token, user_password):
     # first try to authenticate by token
-    user = User.verify_auth_token(username_or_token)
+    user = User.verify_auth_token(user_login_or_token)
     if not user:
-        # try to authenticate with username/password
-        user = User.query.filter_by(username=username_or_token).first()
-        if not user or not user.verify_password(password):
+        # try to authenticate with user_login/user_password
+        user = User.query.filter_by(user_login=user_login_or_token).first()
+        if not user or not user.verify_user_password(user_password):
             return False
     g.user = user
     return True
@@ -69,17 +69,17 @@ def verify_password(username_or_token, password):
 
 @app.route('/api/users', methods=['POST'])
 def new_user():
-    username = request.json.get('username')
-    password = request.json.get('password')
-    if username is None or password is None:
+    user_login = request.json.get('user_login')
+    user_password = request.json.get('user_password')
+    if user_login is None or user_password is None:
         abort(400)    # missing arguments
-    if User.query.filter_by(username=username).first() is not None:
+    if User.query.filter_by(user_login=user_login).first() is not None:
         abort(400)    # existing user
-    user = User(username=username)
-    user.hash_password(password)
+    user = User(user_login=user_login)
+    user.hash_user_password(user_password)
     user_db.session.add(user)
     user_db.session.commit()
-    return (jsonify({'username': user.username}), 201,
+    return (jsonify({'user_login': user.user_login}), 201,
             {'Location': url_for('get_user', id=user.id, _external=True)})
 
 
@@ -88,7 +88,7 @@ def get_user(id):
     user = User.query.get(id)
     if not user:
         abort(400)
-    return jsonify({'username': user.username})
+    return jsonify({'user_login': user.user_login})
 
 
 @app.route('/api/token')
@@ -101,7 +101,7 @@ def get_auth_token():
 @app.route('/api/resource')
 @auth.login_required
 def get_resource():
-    return jsonify({'data': 'Hello, %s!' % g.user.username})
+    return jsonify({'data': 'Hello, %s!' % g.user.user_login})
 
 if __name__ == '__main__':
     if not os.path.exists('user_db.sqlite'):
