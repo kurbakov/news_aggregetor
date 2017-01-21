@@ -33,3 +33,11 @@ max_twitter_id int8
 
 #### Index: user
 #### Document: user_information
+{  
+id: int8,  
+user_name: text,  
+user_email: text,  
+user_login: text,  
+user_password: text  
+}
+
