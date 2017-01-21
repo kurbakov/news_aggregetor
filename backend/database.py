@@ -31,3 +31,4 @@ class Database:
 
     def update_document(self, index_name, document_id, key, new_value):
         self.es.update(index=index_name, doc_type='tweet', id=document_id, body={"doc": {key: new_value}})
+
