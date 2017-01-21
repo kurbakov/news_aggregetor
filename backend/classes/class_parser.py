@@ -4,7 +4,7 @@ import json
 
 class Parser:
     def __init__(self):
-        print "Parser class is used"
+        print "Parser classes is used"
 
     @staticmethod
     def read_file(path):

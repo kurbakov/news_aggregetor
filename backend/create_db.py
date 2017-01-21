@@ -4,7 +4,7 @@ we use all the same data base in the backend with the same setup.
 '''
 
 # dependencies
-from database import Database
+from classes.class_database import Database
 
 if __name__ == '__main__':
     es = Database()

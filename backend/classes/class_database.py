@@ -5,7 +5,6 @@
 
 from elasticsearch import Elasticsearch
 
-
 class Database:
     def __init__(self):
         self.es = Elasticsearch([{'host': '127.0.0.1', 'port': 9200}])
