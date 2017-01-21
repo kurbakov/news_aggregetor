@@ -2,10 +2,12 @@
 
 # Example from:
 # https://github.com/miguelgrinberg/REST-auth
+# Reworked and tuned for Elasticserach
 
 import os
 from flask import Flask, abort, request, jsonify, g, url_for
-from flask.ext.sqlalchemy import SQLAlchemy
+#from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.elasticsearch import FlaskElasticsearch
 from flask.ext.httpauth import HTTPBasicAuth
 from passlib.apps import custom_app_context as pwd_context
 from itsdangerous import (TimedJSONWebSignatureSerializer
@@ -14,11 +16,10 @@ from itsdangerous import (TimedJSONWebSignatureSerializer
 # initialization
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'the quick brown fox jumps over the lazy dog'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
-app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
+#app.config['ELASTICSEARCH_HOST'] = 'localhost:9200'
 
 # extensions
-db = SQLAlchemy(app)
+db = FlaskElasticsearch(app)
 auth = HTTPBasicAuth()
 
 
