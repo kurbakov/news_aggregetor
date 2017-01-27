@@ -12,7 +12,7 @@ from nltk.probability import FreqDist
 import pickle
 
 
-class Sentiment_analysis:
+class SentimentAnalysis:
     def __init__(self, pos, neg, classifier):
         self.positive_path = pos
         self.negative_path = neg

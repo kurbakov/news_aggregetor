@@ -1,0 +1,12 @@
+####### requirements.txt #######
+
+################################
+# List of libraries that we use
+# in the project
+################################
+
+json
+elasticsearch
+nltk
+tweepy
+pickle
