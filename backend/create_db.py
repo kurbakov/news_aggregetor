@@ -5,12 +5,13 @@ we use all the same data base in the backend with the same setup.
 
 # global dependencies
 import json
+import os
 
 # local dependencies
 from classes.class_database import Database
 
 # global variable
-working_directory = "/Users/dmytrokurbakov/Desktop/my_git/project_a/"
+working_directory = os.path.dirname(__file__)
 
 
 def read_file(path):
@@ -72,7 +73,7 @@ if __name__ == '__main__':
     es.create_index("user", user_settings)
 
     # load twitter sample data
-    twitter_data_str = read_file(working_directory+"backend/data/twitter_data_sample.json")
+    twitter_data_str = read_file(working_directory+"/data/twitter_data_sample.json")
     twitter_data_list = json.loads(twitter_data_str)
 
     # push data to the database
@@ -84,7 +85,7 @@ if __name__ == '__main__':
     del twitter_data_list[:]
 
     # load twitter account data sample
-    twitter_account_str = read_file(working_directory+"backend/data/twitter_accounts.json")
+    twitter_account_str = read_file(working_directory+"/data/twitter_accounts.json")
     twitter_account_list = json.loads(twitter_account_str)
 
     # push data to the database

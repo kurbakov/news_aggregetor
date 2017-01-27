@@ -10,3 +10,4 @@ elasticsearch
 nltk
 tweepy
 pickle
+os
