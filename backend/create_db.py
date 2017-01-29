@@ -99,5 +99,5 @@ if __name__ == '__main__':
     # refresh the database
     es.refresh_index("twitter")
 
-    es.delete_index("twitter")
-    es.delete_index("user")
+    # es.delete_index("twitter")
+    # es.delete_index("user")
