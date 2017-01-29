@@ -78,4 +78,4 @@ user_login: text,
 user_password: text  
 }
 
-For any questions please contact [Dmytro kurbakov](https://github.com/kurbakov)
+For any questions please contact [Dmytro Kurbakov](https://github.com/kurbakov)
