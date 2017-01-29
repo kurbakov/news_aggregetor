@@ -28,3 +28,5 @@ The search will run on the twitter/twitter_data field news_text.
 
 In case if you want to add any other method please feel free to modify the [source code](https://github.com/kurbakov/project_a/blob/master/api/scr/__init__.py) so you can add any other method that you consider important for your code.
 
+Literature:  
+- [M. Bonzanini, Building a Search-As-You-Type Feature with Elasticsearch, AngularJS and Flask](https://marcobonzanini.com/2015/08/10/building-a-search-as-you-type-feature-with-elasticsearch-angularjs-and-flask/)
