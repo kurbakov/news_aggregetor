@@ -12,9 +12,9 @@
 # # Global variables
 # CREDENTIALS_FILE = "/Users/dmytrokurbakov/Desktop/credentials.json"
 # CONFIG_FILE = "twitter_accounts.json"
-# POSITIVE = "sentimetn_analysis/negative_tweets.json"
-# NEGATIVE = "sentimetn_analysis/positive_tweets.json"
-# CLASSIFIER_PATH = "sentimetn_analysis/classifier.pickle"
+# POSITIVE = "sentiment_analysis/negative_tweets.json"
+# NEGATIVE = "sentiment_analysis/positive_tweets.json"
+# CLASSIFIER_PATH = "sentiment_analysis/classifier.pickle"
 
 # if __name__ == '__main__':
 #     p = Parser()

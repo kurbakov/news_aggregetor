@@ -69,7 +69,7 @@ class SentimentAnalysis:
         print 'get negative twitter data...'
         neg_tweets = self.get_negative_sample()
 
-        print 'build full data set'
+        print 'build full data set...'
         tweets = []
         for (words, sentiment) in pos_tweets + neg_tweets:
             words_filtered = [e.lower() for e in words.split() if len(e) >= 3]
@@ -109,17 +109,3 @@ class SentimentAnalysis:
         res["negative_probability"] = neg_prob
         res["positive_probability"] = 1-neg_prob
         return res
-
-
-# if __name__ == '__main__':
-#
-#     POSITIVE = "/Users/dmytrokurbakov/Desktop/news/be/sa/negative_tweets.json"
-#     NEGATIVE = "/Users/dmytrokurbakov/Desktop/news/be/sa/positive_tweets.json"
-#     CLASSIFIER_PATH = "/Users/dmytrokurbakov/Desktop/news/be/sa/classifier.pickle"
-#
-#     sa = Sentiment_analysis(POSITIVE, NEGATIVE, CLASSIFIER_PATH)
-#     # sa.learn_classifier()
-#     classifier = sa.load_classifier()
-#     my_data = "my twitt is here!"
-#     result = sa.compute_sentiment_value(classifier, my_data)
-#     print result
