@@ -8,6 +8,7 @@ The backend I would split into 3 parts:
 ## Backend logic
 
 The idea is very simple. lets imagine we have the databse with the list of the twitter accounts. For each account we have last twitter post id. So we can do incremental load to our database. The logic can be splitted into the following steps:
+- Step 0: run create_db.py to create the database and populate twitter accounts.
 - Step 1: get the list of twitter accounts from the database
 - Step 2: send request to twitter to get the newests post
 - Step 3: parse the twitter API reply
