@@ -26,5 +26,5 @@ where TEXT is our string for the search.
 By default we will run the APP on the port 5000 on our localhost.  
 The search will run on the twitter/twitter_data field news_text.
 
-In case if you want to add any other method please feel free to modify [scr/__init__.py](https://github.com/kurbakov/project_a/blob/master/api/scr/__init__.py) so you can add any other method that you consider important for your code.
+In case if you want to add any other method please feel free to modify the [source code](https://github.com/kurbakov/project_a/blob/master/api/scr/__init__.py) so you can add any other method that you consider important for your code.
 
