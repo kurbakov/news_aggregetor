@@ -2,20 +2,20 @@
 
 Welcome to the __project_a__ GitHub repository!
 
-This is a project to build the news generator. The main goal of the project is to have fun with the code, learn something new in my free time and first od all make the world better! =)
+The aim of this project is to build the news aggregator. We are guided by some simple rules: have some fun with the code, learn something new in the free time, and of course make the world a better place! =)
 
 ## Motivation
 
-Currently we and different types of bots generate a massive volume of the information in the internet every signle second. So it is very easy to get lost in the internet. That is why each of us has 1-2 favourite data sources in the internet where we get 90% of the information about news in the world. But nowadays every newspaper is private and basically they sell news to consumers. So the newspaper generate the information for sell. 
+Nowadays, every single second we receive a massive amount of information about things happening in the world from the internet. Unsurprisingly, it is very easy to get lost in the flow. Usually, each of us has a couple of favourite sites out there, which we get 90% of the news from. Unfortunately, every newspaper follows interests of a small groups of people, and are held privately. Thus, news have become a tradable good. Eventually, newspaper generate the information for selling.
 
-The idea of the current project is to collect the information from all over the world and compare it to each other so we can clarify who is lying and what is the reason. 
+The idea of this project is to gather the information from all possible free independent sources all over the world, do analysis on it, and compare alternatives, in order to understand the truth.
 
-As an example of the mass media news manipulation just check the president election in the USA, MH17 investigation in EU or Brexit.
+As an example of the mass media news manipulation just check the president election in the USA of 2016, MH17 investigation in EU, or Brexit.
 
 ## Who can join
 
-It is open source project so everyone can join and contribute to the project. It can be an idea or improvement in the code. If you see that we can do something better just text me!
+It is open source project so anyone can join and contribute. All ideas, or code improvements will be reviewed. If you see that we can do something better just text me!
 
 ## What is the current status of the project
 
-Currently I am trying to finilize the basic functionality of the backend. Next step will be start working on the frontend and create white pages for the frontend.
+Currently, I am trying to finilize the basic functionality of the backend. Next step will be start working on the frontend, and create white pages for the frontend.
