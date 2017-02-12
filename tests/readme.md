@@ -1,4 +1,5 @@
-This the directory for tests.  
+### This the directory for tests  
+
 For each class we need the test.
 
 Currently the following classes required tests:
@@ -11,3 +12,11 @@ Currently the following classes required tests:
 As the tool for the tests we use unittest (Unit testing framework).  
 For more information please visit the official webpage: [link](https://docs.python.org/2/library/unittest.html)
 
+### How to add/modify tests
+
+All tests are stored in [project_a/tests/all_tests_files/](https://github.com/kurbakov/project_a/tree/master/tests/all_tests_files).
+You can find already a small example of the test. Just modify or add new files to this directory.
+
+To run tests please execute the file run_all_tests.py
+
+Have fun!
