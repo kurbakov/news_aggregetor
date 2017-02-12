@@ -3,7 +3,7 @@ import unittest
 from backend.classes import class_parser
 
 
-class TestFoo(unittest.TestCase):
+class TestClassParser(unittest.TestCase):
 
     # parse_string
     def test_read_file(self):
