@@ -1,43 +1,47 @@
 # need to rewrite from scratch
 
-# # libraries
-# import json
+# libraries
+import json
+import os
 
-# # my classes
-# from parser import Parser
-# from twitter import Twitter
-# from database import Database
-# from sentiment_analysis import Sentiment_analysis
+# my classes
+from classes.class_parser import Parser
+from classes.class_twitter import Twitter
+from classes.class_database import Database
+from classes.class_sentiment_analysis import SentimentAnalysis
 
-# # Global variables
-# CREDENTIALS_FILE = "/Users/dmytrokurbakov/Desktop/credentials.json"
-# CONFIG_FILE = "twitter_accounts.json"
-# POSITIVE = "sentiment_analysis/negative_tweets.json"
-# NEGATIVE = "sentiment_analysis/positive_tweets.json"
-# CLASSIFIER_PATH = "sentiment_analysis/classifier.pickle"
+# Global variables
 
-# if __name__ == '__main__':
-#     p = Parser()
-#     credentials_string = p.read_file(CREDENTIALS_FILE)
-#     credentials_dict = p.parse_string(credentials_string)
+CREDENTIALS_FILE = "../../credentials.json"
+CONFIG_FILE = "data/twitter_accounts.json"
+POSITIVE = "data/negative_tweets.json"
+NEGATIVE = "data/positive_tweets.json"
+CLASSIFIER_PATH = "sentiment_analysis/classifier.pickle"
 
-#     TWITTER_CKEY = credentials_dict.get("twitter_ckey")
-#     TWITTER_ATOCKEN = credentials_dict.get("twitter_tocken")
-#     TWITTER_CSECRET = credentials_dict.get("twitter_csecret")
-#     TWITTER_ATOCKEN_SECRET = credentials_dict.get("twitter_tocken_secret")
-#     twitter_accounts = p.read_file("twitter_accounts.json")
-#     twitter_accounts = p.parse_string(twitter_accounts)
+if __name__ == '__main__':
+    p = Parser()
+    credentials_string = p.read_file(CREDENTIALS_FILE)
+    credentials_dict = p.parse_string(credentials_string)
 
-#     twitter_api = Twitter(TWITTER_CKEY, TWITTER_CSECRET, TWITTER_ATOCKEN, TWITTER_ATOCKEN_SECRET)
+    TWITTER_CKEY = credentials_dict.get("twitter_ckey")
+    TWITTER_ATOCKEN = credentials_dict.get("twitter_tocken")
+    TWITTER_CSECRET = credentials_dict.get("twitter_csecret")
+    TWITTER_ATOCKEN_SECRET = credentials_dict.get("twitter_tocken_secret")
 
-#     sa = Sentiment_analysis(POSITIVE, NEGATIVE, CLASSIFIER_PATH)
-#     classifier = sa.load_classifier()
+    twitter_api = Twitter(TWITTER_CKEY, TWITTER_CSECRET, TWITTER_ATOCKEN, TWITTER_ATOCKEN_SECRET)
 
-#     final_list = list()
-#     for account in twitter_accounts:
+    sa = SentimentAnalysis(POSITIVE, NEGATIVE, CLASSIFIER_PATH)
+    classifier = sa.load_classifier()
 
-#         twitter_out_data = twitter_api.get_twitts(twitter_id=account.get("id"), last_twitter_id=account.get("max_twitter_id"))
-#         parsed_twitter_data = p.parse_twitter_data(twitter_out_data)
+    # get data from Elasticsearch!!!!!!
+    # twitter_accounts = p.read_file(CONFIG_FILE)
+    # twitter_accounts = p.parse_string(twitter_accounts)
+
+    final_list = list()
+    for account in twitter_accounts:
+
+        twitter_out_data = twitter_api.get_twitts(twitter_id=account.get("id"), last_twitter_id=account.get("max_twitter_id"))
+        parsed_twitter_data = p.parse_twitter_data(twitter_out_data)
 
 #         for news in parsed_twitter_data:
 
